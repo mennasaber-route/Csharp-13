@@ -17,6 +17,17 @@
 
         }
 
+        internal class Pair<TKey, TValue>
+        {
+            public TKey Key { get; set; }
+            public TValue Value { get; set; }
+            public Pair(TKey key, TValue value)
+            {
+                Key = key;
+                Value = value;
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -43,6 +54,16 @@
 
             Console.WriteLine(number.Get(0));
             Console.WriteLine(number.Get(1));
+
+            #endregion
+
+            #region  Question 3
+            //Q3:What are multiple type parameters? Write Pair<TKey, TValue>.
+            // Multiple type parameters are when a generic class or method can take more than one type parameter.
+
+            Pair<int, string> pair = new Pair<int, string>(1 , "Menna");
+            Console.WriteLine(pair.Key);
+            Console.WriteLine(pair.Value);
 
             #endregion
 
