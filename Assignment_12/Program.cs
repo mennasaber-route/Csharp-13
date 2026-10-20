@@ -297,6 +297,15 @@ namespace Assignment_12
             Console.WriteLine(product.Id);
 
             #endregion
+
+
+            #region  Question 13
+            //Q13: What does the 'default' keyword do in generics?
+            
+                // The default keyword is used to return the default value of a generic type parameter.
+
+            #endregion
+
         }
     }
 }
