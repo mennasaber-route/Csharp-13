@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using static Assignment_12.Program;
 
 namespace Assignment_12
 {
@@ -83,6 +84,22 @@ namespace Assignment_12
         public class Student
         {
             public string Name { get; set; } = "";
+        }
+
+        public class PrintableContainer<T> where T : IPrintable
+        {
+            public void PrintItem(T item)
+            {
+                item.Print();
+            }
+        }
+
+        public class Invoice : IPrintable
+        {
+            public void Print()
+            {
+                Console.WriteLine("Printing Invoice");
+            }
         }
 
 
@@ -205,6 +222,16 @@ namespace Assignment_12
             Factory<Student> factory = new Factory<Student>();
             Student student = factory.Create();
             Console.WriteLine("Student created");
+
+            #endregion
+
+
+            #region  Question 10
+            //Q10:  What is the interface constraint? Write an example
+            // The interface constraint requires the type argument to implement a specific interface.
+
+            PrintableContainer<Invoice> printableContainer = new PrintableContainer<Invoice>();
+            printableContainer.PrintItem(new Invoice());
 
             #endregion
         }
