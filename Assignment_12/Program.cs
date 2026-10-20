@@ -111,6 +111,33 @@
             Console.WriteLine(Program.Findmax(items));
 
             #endregion
+
+
+            #region  Question 6
+            //Q6: What is a generic interface? Write IRepository<T>
+                  // A generic interface is a contract that interface can take one or more type parameters.
+
+            ProductRepository productRepository = new ProductRepository();
+            Product product1 = new Product( 1, "Laptop", 100.0m );
+            Product product2 = new Product(2, "PC", 200.0m);
+            Product product3 = new Product(3, "Iphone", 400.0m);
+
+            productRepository.Create(product1);
+            productRepository.Create(product2);
+            productRepository.Create(product3);
+
+
+            List<Product> products = productRepository.GetAll();
+            foreach (Product product in products)
+            {
+                Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}");
+            }
+            
+            productRepository.GetById(2);
+            productRepository.Update(2, new Product(2, "Tablet", 150.0m));
+            productRepository.Delete(3);
+
+            #endregion
         }
     }
 }
