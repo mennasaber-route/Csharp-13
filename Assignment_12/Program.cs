@@ -136,6 +136,27 @@ namespace Assignment_12
         }
 
 
+        public class SafeList<T>
+        {
+            public List<T> _items = new List<T>();
+
+            public void Add(T item)
+            {
+                _items.Add(item);
+            }
+
+            public T Get(int index)
+            {
+                if (index < 0 || index >= _items.Count)
+                {
+                    return default(T);
+                }
+
+                return _items[index];
+            }
+        }
+
+
 
         // // //
         static void Main(string[] args)
@@ -301,8 +322,22 @@ namespace Assignment_12
 
             #region  Question 13
             //Q13: What does the 'default' keyword do in generics?
-            
-                // The default keyword is used to return the default value of a generic type parameter.
+
+            // The default keyword is used to return the default value of a generic type parameter.
+
+            #endregion
+
+
+            #region  Question 14
+            //Q14: Write a SafeList<T> that returns default when the index is invalid
+
+            SafeList<int> numbers = new SafeList<int>();
+
+            numbers.Add(10);
+            numbers.Add(20);
+
+            Console.WriteLine(numbers.Get(0));   
+            Console.WriteLine(numbers.Get(10));  
 
             #endregion
 
