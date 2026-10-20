@@ -61,6 +61,14 @@
             } 
         }
 
+        public class MyContainer2<T> where T : class
+        {
+            public string TValue { get; set; }
+            public MyContainer2(string value)
+            {
+                TValue = value;
+            }
+        }
 
 
 
@@ -159,6 +167,16 @@
 
             MyContainer<int> myContainer = new MyContainer<int>(10);
             Console.WriteLine(myContainer.Value);
+
+            #endregion
+
+            #region  Question 8
+            //Q8: What is the 'class' constraint? Write an example
+            // The class constraint is a generic Primary constraint , such as string, and
+            // you can use it on your data type only once or zero.
+
+            MyContainer2<string> myContainer2 = new MyContainer2<string>("Menna");
+            Console.WriteLine(myContainer2.TValue);
 
             #endregion
         }
