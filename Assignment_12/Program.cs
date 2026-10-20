@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Reflection.Metadata;
 using static Assignment_12.Program;
 
 namespace Assignment_12
@@ -102,8 +103,26 @@ namespace Assignment_12
             }
         }
 
+        public class  Person
+        {
+            public string Name { get; set; } = "";
+        }
+
+        public class Employee : Person
+        {
+            public int EmployeeId { get; set; }
+        }
+
+        public class PersonContainer<T> where T : Person
+        {
+            public void PrintName(T Person)
+            {
+                Console.WriteLine(Person.Name);
+            }
+        }
 
 
+        // // //
         static void Main(string[] args)
         {
 
@@ -232,6 +251,19 @@ namespace Assignment_12
 
             PrintableContainer<Invoice> printableContainer = new PrintableContainer<Invoice>();
             printableContainer.PrintItem(new Invoice());
+
+            #endregion
+
+
+            #region  Question 11
+            //Q11: What is the base class constraint? Write an example.
+
+            // A base class constraint restricts the generic type parameter
+            // to a specified base class or one of its derived classes.
+
+            PersonContainer<Employee> personContainer = new PersonContainer<Employee>();
+            Employee employee = new Employee { Name = "Menna", EmployeeId = 1 };
+            personContainer.PrintName(employee);
 
             #endregion
         }
