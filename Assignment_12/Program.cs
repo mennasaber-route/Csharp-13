@@ -1,4 +1,6 @@
-﻿namespace Assignment_12
+﻿using System.Data;
+
+namespace Assignment_12
 {
     internal class Program
     {
@@ -68,6 +70,19 @@
             {
                 TValue = value;
             }
+        }
+
+
+        public class Factory<T> where T : new()
+        {
+            public T Create()
+            {
+                return new T();
+            }
+        }
+        public class Student
+        {
+            public string Name { get; set; } = "";
         }
 
 
@@ -170,6 +185,7 @@
 
             #endregion
 
+
             #region  Question 8
             //Q8: What is the 'class' constraint? Write an example
             // The class constraint is a generic Primary constraint , such as string, and
@@ -177,6 +193,18 @@
 
             MyContainer2<string> myContainer2 = new MyContainer2<string>("Menna");
             Console.WriteLine(myContainer2.TValue);
+
+            #endregion
+
+
+            #region  Question 9
+            //Q9: What is the 'new()' constraint? Write an example
+            //The new() constraint requires the type argument to have a public parameterless constructor.
+            //It allows the generic class or method to create an object using new T()
+
+            Factory<Student> factory = new Factory<Student>();
+            Student student = factory.Create();
+            Console.WriteLine("Student created");
 
             #endregion
         }
