@@ -87,19 +87,19 @@ namespace Assignment_12
             public string Name { get; set; } = "";
         }
 
-        public class PrintableContainer<T> where T : IPrintable
-        {
-            public void PrintItem(T item)
-            {
-                item.Print();
-            }
-        }
-
         public class Invoice : IPrintable
         {
             public void Print()
             {
                 Console.WriteLine("Printing Invoice");
+            }
+        }
+
+        public class PrintableContainer<T> where T : IPrintable
+        {
+            public void PrintItem(T item)
+            {
+                item.Print();
             }
         }
 
@@ -120,6 +120,21 @@ namespace Assignment_12
                 Console.WriteLine(Person.Name);
             }
         }
+
+        public class Product : IEntity
+        {
+            public int Id { get; set; }
+        }
+
+        public class EntityManager<T>
+            where T : class, IEntity, new()
+        {
+            public T CreateEntity()
+            {
+                return new T();
+            }
+        }
+
 
 
         // // //
@@ -188,25 +203,25 @@ namespace Assignment_12
             //Q6: What is a generic interface? Write IRepository<T>
                   // A generic interface is a contract that interface can take one or more type parameters.
 
-            ProductRepository productRepository = new ProductRepository();
-            Product product1 = new Product( 1, "Laptop", 100.0m );
-            Product product2 = new Product(2, "PC", 200.0m);
-            Product product3 = new Product(3, "Iphone", 400.0m);
+            //ProductRepository productRepository = new ProductRepository();
+            //Product product1 = new Product( 1, "Laptop", 100.0m );
+            //Product product2 = new Product(2, "PC", 200.0m);
+            //Product product3 = new Product(3, "Iphone", 400.0m);
 
-            productRepository.Create(product1);
-            productRepository.Create(product2);
-            productRepository.Create(product3);
+            //productRepository.Create(product1);
+            //productRepository.Create(product2);
+            //productRepository.Create(product3);
 
 
-            List<Product> products = productRepository.GetAll();
-            foreach (Product product in products)
-            {
-                Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}");
-            }
+            //List<Product> products = productRepository.GetAll();
+            //foreach (Product product in products)
+            //{
+            //    Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}");
+            //}
             
-            productRepository.GetById(2);
-            productRepository.Update(2, new Product(2, "Tablet", 150.0m));
-            productRepository.Delete(3);
+            //productRepository.GetById(2);
+            //productRepository.Update(2, new Product(2, "Tablet", 150.0m));
+            //productRepository.Delete(3);
 
             #endregion
 
@@ -264,6 +279,22 @@ namespace Assignment_12
             PersonContainer<Employee> personContainer = new PersonContainer<Employee>();
             Employee employee = new Employee { Name = "Menna", EmployeeId = 1 };
             personContainer.PrintName(employee);
+
+            #endregion
+
+
+            #region  Question 12
+            //Q12: How do you apply multiple constraints? Write an example
+
+            //Multiple constraints can be applied to a generic type parameter by listing the required constraints
+            //after where T :, separated by commas.
+
+            EntityManager<Product> manager = new EntityManager<Product>();
+
+            Product product = manager.CreateEntity();
+            product.Id = 100;
+
+            Console.WriteLine(product.Id);
 
             #endregion
         }
