@@ -52,6 +52,18 @@
             return default;
         }
 
+        public class MyContainer<T> where T : struct
+        {
+            public int Value { get; set; }
+            public MyContainer(int value)
+            {
+                Value = value;
+            } 
+        }
+
+
+
+
         static void Main(string[] args)
         {
 
@@ -136,6 +148,17 @@
             productRepository.GetById(2);
             productRepository.Update(2, new Product(2, "Tablet", 150.0m));
             productRepository.Delete(3);
+
+            #endregion
+
+
+            #region  Question 7
+            //Q7: What is the 'struct' constraint? Write an example
+                 // The struct constraint is a generic Primary constraint , such as int , double, and
+                 // you can use it on your data type only once or zero.
+
+            MyContainer<int> myContainer = new MyContainer<int>(10);
+            Console.WriteLine(myContainer.Value);
 
             #endregion
         }
