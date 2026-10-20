@@ -28,6 +28,14 @@
             }
         }
 
+        public static void Swap<T>(ref T a , ref T b)
+        {
+            T temp = a;
+            a = b;
+            b = temp;
+        }
+
+
 
         static void Main(string[] args)
         {
@@ -64,6 +72,19 @@
             Pair<int, string> pair = new Pair<int, string>(1 , "Menna");
             Console.WriteLine(pair.Key);
             Console.WriteLine(pair.Value);
+
+            #endregion
+
+            //  *******   Part 2 : C# Advanced 1 **********
+            #region  Question 4
+            //Q4: What is a generic method? Write Swap<T> method.
+            // A generic method is a method that can take one or more type parameters,
+            // also can be ageneric even if the class is not generic.
+
+            int a = 10, b = 20;
+            Program.Swap(ref a, ref b);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
 
             #endregion
 
