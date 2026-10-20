@@ -35,7 +35,22 @@
             b = temp;
         }
 
-
+        public static T Findmax<T>(T[] items) where T : IComparable<T>
+        {
+           if(items != null && items.Length > 0)
+           {
+                T max = items[0];
+                for (int i= 1; i< items.Length; i++)
+                {
+                    if (items[i].CompareTo(max) > 0)
+                    {
+                        max = items[i];
+                    }              
+                }
+                return max;
+            }
+            return default;
+        }
 
         static void Main(string[] args)
         {
@@ -89,6 +104,13 @@
             #endregion
 
 
+            #region  Question 5
+            //Q5: Write a generic method FindMax<T> that finds maximum value
+
+            int [] items = [ 1, 2, 3, 4, 5 ];
+            Console.WriteLine(Program.Findmax(items));
+
+            #endregion
         }
     }
 }
