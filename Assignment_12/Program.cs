@@ -377,6 +377,14 @@ namespace Assignment_12
 
             #endregion
 
+
+            #region  Question 18
+            //Q18: How do static members work in generic types?
+            // Static members in generic types are shared across all instances of the same closed constructed type.
+
+
+            #endregion
+
         }
     }
 }
