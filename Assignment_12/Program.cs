@@ -349,7 +349,19 @@ namespace Assignment_12
             // use of the generic type parameter to output positions only, such as return types and getter methods.
 
             // The out keyword declares a covariant type parameter,
-            //  used when a generic interface produces values.
+            //  used when a generic interface or delegate produces values.
+
+            #endregion
+
+
+            #region  Question 16
+            //Q16: What is contravariance? Explain the 'in' keyword
+
+            // Contravariance allows a generic type to be used with a less derived type, it limits generic
+            // types to be used in input positions only, such as method parameters and setter methods.
+
+           // when supported by the generic interface or delegate. The in keyword declares a contravariant
+           // type parameter, commonly used for input values.
 
             #endregion
 
