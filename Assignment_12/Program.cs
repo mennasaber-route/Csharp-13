@@ -1,8 +1,4 @@
-﻿using System.Data;
-using System.Reflection.Metadata;
-using static Assignment_12.Program;
-
-namespace Assignment_12
+﻿namespace Assignment_12
 {
     internal class Program
     {
@@ -32,7 +28,7 @@ namespace Assignment_12
             }
         }
 
-        public static void Swap<T>(ref T a , ref T b)
+        public static void Swap<T>(ref T a, ref T b)
         {
             T temp = a;
             a = b;
@@ -41,15 +37,15 @@ namespace Assignment_12
 
         public static T Findmax<T>(T[] items) where T : IComparable<T>
         {
-           if(items != null && items.Length > 0)
-           {
+            if (items != null && items.Length > 0)
+            {
                 T max = items[0];
-                for (int i= 1; i< items.Length; i++)
+                for (int i = 1; i < items.Length; i++)
                 {
                     if (items[i].CompareTo(max) > 0)
                     {
                         max = items[i];
-                    }              
+                    }
                 }
                 return max;
             }
@@ -62,7 +58,7 @@ namespace Assignment_12
             public MyContainer(int value)
             {
                 Value = value;
-            } 
+            }
         }
 
         public class MyContainer2<T> where T : class
@@ -103,7 +99,7 @@ namespace Assignment_12
             }
         }
 
-        public class  Person
+        public class Person
         {
             public string Name { get; set; } = "";
         }
@@ -169,6 +165,7 @@ namespace Assignment_12
         }
 
 
+
         // // //
         static void Main(string[] args)
         {
@@ -202,7 +199,7 @@ namespace Assignment_12
             //Q3:What are multiple type parameters? Write Pair<TKey, TValue>.
             // Multiple type parameters are when a generic class or method can take more than one type parameter.
 
-            Pair<int, string> pair = new Pair<int, string>(1 , "Menna");
+            Pair<int, string> pair = new Pair<int, string>(1, "Menna");
             Console.WriteLine(pair.Key);
             Console.WriteLine(pair.Value);
 
@@ -225,7 +222,7 @@ namespace Assignment_12
             #region  Question 5
             //Q5: Write a generic method FindMax<T> that finds maximum value
 
-            int [] items = [ 1, 2, 3, 4, 5 ];
+            int[] items = [1, 2, 3, 4, 5];
             Console.WriteLine(Program.Findmax(items));
 
             #endregion
@@ -233,7 +230,7 @@ namespace Assignment_12
 
             #region  Question 6
             //Q6: What is a generic interface? Write IRepository<T>
-                  // A generic interface is a contract that interface can take one or more type parameters.
+            // A generic interface is a contract that interface can take one or more type parameters.
 
             //ProductRepository productRepository = new ProductRepository();
             //Product product1 = new Product( 1, "Laptop", 100.0m );
@@ -250,7 +247,7 @@ namespace Assignment_12
             //{
             //    Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}");
             //}
-            
+
             //productRepository.GetById(2);
             //productRepository.Update(2, new Product(2, "Tablet", 150.0m));
             //productRepository.Delete(3);
@@ -260,8 +257,8 @@ namespace Assignment_12
 
             #region  Question 7
             //Q7: What is the 'struct' constraint? Write an example
-                 // The struct constraint is a generic Primary constraint , such as int , double, and
-                 // you can use it on your data type only once or zero.
+            // The struct constraint is a generic Primary constraint , such as int , double, and
+            // you can use it on your data type only once or zero.
 
             MyContainer<int> myContainer = new MyContainer<int>(10);
             Console.WriteLine(myContainer.Value);
@@ -347,7 +344,7 @@ namespace Assignment_12
             numbers.Add(10);
             numbers.Add(20);
 
-            Console.WriteLine(numbers.Get(0));   
+            Console.WriteLine(numbers.Get(0));
             Console.WriteLine(numbers.Get(10));
 
             #endregion
@@ -406,6 +403,31 @@ namespace Assignment_12
             Console.WriteLine(person1.GetItem("Menna"));
 
             #endregion
+
+
+            #region  Question 20
+            //Q20: Complete Exercise - Create a generic Cache<TKey, TValue>with Add, Get, Remove, Contains,
+            //and expiration support.
+
+
+            Cache<string, decimal> cache = new Cache<string, decimal>();
+
+            cache.Add("Laptop", 25000m);
+            cache.Add("Phone", 15000m, TimeSpan.FromSeconds(2));
+
+            Console.WriteLine(cache.Get("Laptop"));
+            Console.WriteLine(cache.Contains("Phone"));
+
+            System.Threading.Thread.Sleep(2500);
+
+            Console.WriteLine(cache.Contains("Phone"));
+
+            Console.WriteLine(cache.Remove("Laptop"));
+            Console.WriteLine(cache.Contains("Laptop"));
+
+
+            #endregion
+
         }
     }
 }
