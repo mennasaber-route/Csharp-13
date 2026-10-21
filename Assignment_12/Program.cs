@@ -360,8 +360,20 @@ namespace Assignment_12
             // Contravariance allows a generic type to be used with a less derived type, it limits generic
             // types to be used in input positions only, such as method parameters and setter methods.
 
-           // when supported by the generic interface or delegate. The in keyword declares a contravariant
-           // type parameter, commonly used for input values.
+            // when supported by the generic interface or delegate. The in keyword declares a contravariant
+            // type parameter, commonly used for consuming values.
+
+            #endregion
+
+
+            #region  Question 17
+            //Q17: What is the difference between covariance and contravariance?
+
+            // Covariance allows a generic type to be used with a more derived type, it limits the
+            // use of the generic type parameter to output positions only.
+
+            // while contravariance allows a generic type to be used with a less derived type , it limits generic
+            // types to be used in input positions only
 
             #endregion
 
