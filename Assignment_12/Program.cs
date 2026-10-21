@@ -337,7 +337,19 @@ namespace Assignment_12
             numbers.Add(20);
 
             Console.WriteLine(numbers.Get(0));   
-            Console.WriteLine(numbers.Get(10));  
+            Console.WriteLine(numbers.Get(10));
+
+            #endregion
+
+
+            #region  Question 15
+            //Q15: What is covariance? Explain the 'out' keyword
+
+            // Covariance allows a generic type to be used with a more derived type , it limits the
+            // use of the generic type parameter to output positions only, such as return types and getter methods.
+
+            // The out keyword declares a covariant type parameter,
+            //  used when a generic interface produces values.
 
             #endregion
 
