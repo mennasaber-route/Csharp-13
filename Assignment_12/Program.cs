@@ -156,6 +156,17 @@ namespace Assignment_12
             }
         }
 
+        public class People<T>
+        {
+            public T GetItem(T item)
+            {
+                return item;
+            }
+        }
+
+        public class Man : People<string>
+        {
+        }
 
 
         // // //
@@ -385,6 +396,16 @@ namespace Assignment_12
 
             #endregion
 
+
+            #region  Question 19
+            //Q19: How can you inherit from a generic class?
+            // You can inherit from a generic class by specifying the type parameter when defining the derived class.
+            //or by passing its own type parameter to the base class.
+
+            Man person1 = new Man();
+            Console.WriteLine(person1.GetItem("Menna"));
+
+            #endregion
         }
     }
 }
